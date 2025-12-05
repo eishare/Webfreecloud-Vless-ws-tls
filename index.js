@@ -140,3 +140,22 @@ server.listen(listenPort, "127.0.0.1", () => {
     console.log(`访问：http://<服务器IP>:${PORT}/${UUID}`);
     console.log("查看全部节点（适用于 DirectAdmin）\n");
 });
+
+// ==========================
+//     KeepAlive 每5~10分钟 自动访问DOMAIN/UUID实现保活
+// ==========================
+function keepAlive() {
+    const url = `https://${DOMAIN}/${UUID}`;
+
+    // GET 请求启动 KeepAlive
+    http.get(url, () => {}).on("error", () => {});
+
+    const min = 5 * 60 * 1000;
+    const max = 10 * 60 * 1000;
+    const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    setTimeout(keepAlive, rand);
+}
+
+// 启动 keepalive 循环
+keepAlive();
