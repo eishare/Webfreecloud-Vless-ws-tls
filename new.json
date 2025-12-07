@@ -1,0 +1,12 @@
+{
+  "name": "vless-da-ultra",
+  "version": "1.0.0",
+  "description": "Ultra-minimal VLESS WS TLS for DirectAdmin Node 20+",
+  "main": "index.js",
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
