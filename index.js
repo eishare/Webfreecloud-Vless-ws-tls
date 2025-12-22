@@ -48,9 +48,9 @@ const server = http.createServer((req, res) => {
         res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });
         res.end(`VLESS WS TLS Running\n访问 /${UUID} 查看所有节点\n`);
     } else if (req.url === `/${UUID}`) {
-        let txt = "═════ easyshare VLESS-WS-TLS 节点 ═════\n\n";
+        let txt = "═════ EasyShare VLESS-WS-TLS 节点 ═════\n\n";
         BEST_DOMAINS.forEach(d => txt += generateLink(d) + "\n\n");
-        txt += "节点已全部生成，可直接复制使用。\n";
+        txt += "节点已全部生成，可全选复制使用。\n";
         res.writeHead(200, { "Content-Type": "text/plain; charset=utf-8" });
         res.end(txt);
     } else {
