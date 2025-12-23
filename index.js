@@ -119,19 +119,10 @@ wss.on("connection", ws => {
 });
 
 // ============================================================
-// =============== 启动 & 自保活 ============================
+// =============== 启动 ============================
 // ============================================================
 const listenPort = Number(PORT) || 0;
 server.listen(listenPort, "0.0.0.0", () => {
     // 访问一次端口，确保 Node.js 完成监听，避免客户端 -1
     server.address().port;
 });
-
-// 自保活，每 2 分钟访问 /UUID 保持 Node.js 进程活跃
-setInterval(() => {
-    try {
-        const port = server.address().port;
-        http.get(`http://127.0.0.1:${port}/${UUID}`, res => res.resume())
-            .on("error", () => { });
-    } catch { }
-}, 120 * 1000);
