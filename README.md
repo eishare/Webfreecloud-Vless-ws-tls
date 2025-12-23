@@ -1,4 +1,4 @@
-### Vless+ws+tls 单节点部署+多优选域名+CF保活方案 说明：
+### Vless+ws+tls 自适应端口+单节点部署+多优选域名+CF保活方案 说明：
 
 * 适用Webfreecloud、WebHostMost、Web.C-Servers的DirectAdmin面板node.js环境 
   
@@ -26,14 +26,16 @@
 
   文件：index.js
 
-     *然后：
+     *然后分别点击：
 
   CREATE APPLICATION
 
-  run npm install
+  Run NPM Install
 
-  运行js--点击start--运行
+  Run JS script
+  start
+  Run JS script
   
-* 4：（以上未见报错）浏览器访问 域名/UUID，可见节点链接地址
+* 4：（以上未见红色报错）浏览器访问 域名/UUID，可见节点链接地址
   
-* 5：出现报错的详细解决步骤：见视频教程
+* 5：报错后无法删除app的详细解决步骤：见视频教程
